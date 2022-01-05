@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <include
+        android:id="@+id/include_pin_entry"
         layout="@layout/include_pin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
