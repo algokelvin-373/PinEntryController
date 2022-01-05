@@ -7,74 +7,75 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.algokelvin.pinentryedittext.databinding.ActivityMainBinding
-import kotlinx.android.synthetic.main.include_pin.*
+import com.algokelvin.pinentryedittext.databinding.IncludePinBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var includePinBinding: IncludePinBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        includePinBinding = binding.includePinEntry
 
-        val layoutPin: View = binding.includePin.idOfIncludedView
-        edt_pin_1.transformationMethod = AsteriskPasswordTransformationMethod()
-        edt_pin_2.transformationMethod = AsteriskPasswordTransformationMethod()
-        edt_pin_3.transformationMethod = AsteriskPasswordTransformationMethod()
-        edt_pin_4.transformationMethod = AsteriskPasswordTransformationMethod()
-        edt_pin_5.transformationMethod = AsteriskPasswordTransformationMethod()
-        edt_pin_6.transformationMethod = AsteriskPasswordTransformationMethod()
+        includePinBinding.edtPin1.transformationMethod = AsteriskPasswordTransformationMethod()
+        includePinBinding.edtPin2.transformationMethod = AsteriskPasswordTransformationMethod()
+        includePinBinding.edtPin3.transformationMethod = AsteriskPasswordTransformationMethod()
+        includePinBinding.edtPin4.transformationMethod = AsteriskPasswordTransformationMethod()
+        includePinBinding.edtPin5.transformationMethod = AsteriskPasswordTransformationMethod()
+        includePinBinding.edtPin6.transformationMethod = AsteriskPasswordTransformationMethod()
 
-        edt_pin_1.addTextChangedListener(inputPinController(edt_pin_1))
-        edt_pin_2.addTextChangedListener(inputPinController(edt_pin_2))
-        edt_pin_3.addTextChangedListener(inputPinController(edt_pin_3))
-        edt_pin_4.addTextChangedListener(inputPinController(edt_pin_4))
-        edt_pin_5.addTextChangedListener(inputPinController(edt_pin_5))
-        edt_pin_6.addTextChangedListener(inputPinController(edt_pin_6))
+        includePinBinding.edtPin1.addTextChangedListener(inputPinController(includePinBinding.edtPin1))
+        includePinBinding.edtPin2.addTextChangedListener(inputPinController(includePinBinding.edtPin2))
+        includePinBinding.edtPin3.addTextChangedListener(inputPinController(includePinBinding.edtPin3))
+        includePinBinding.edtPin4.addTextChangedListener(inputPinController(includePinBinding.edtPin4))
+        includePinBinding.edtPin5.addTextChangedListener(inputPinController(includePinBinding.edtPin5))
+        includePinBinding.edtPin6.addTextChangedListener(inputPinController(includePinBinding.edtPin6))
     }
 
     private fun inputPinController(view: View) = object : TextWatcher {
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            val numberOne = edt_pin_1.text.toString().trim()
-            val numberTwo = edt_pin_2.text.toString().trim()
-            val numberThree = edt_pin_3.text.toString().trim()
-            val numberFour = edt_pin_4.text.toString().trim()
-            val numberFive = edt_pin_5.text.toString().trim()
-            val numberSix = edt_pin_6.text.toString().trim()
+            val numberOne = includePinBinding.edtPin1.text.toString().trim()
+            val numberTwo = includePinBinding.edtPin2.text.toString().trim()
+            val numberThree = includePinBinding.edtPin3.text.toString().trim()
+            val numberFour = includePinBinding.edtPin4.text.toString().trim()
+            val numberFive = includePinBinding.edtPin5.text.toString().trim()
+            val numberSix = includePinBinding.edtPin6.text.toString().trim()
 
             when(view.id) {
                 R.id.edt_pin_1 -> {
                     if (numberOne.length == 1) {
-                        edt_pin_2.requestFocus()
+                        includePinBinding.edtPin2.requestFocus()
                     }
                 }
                 R.id.edt_pin_2 -> {
                     if (numberTwo.length == 1) {
-                        edt_pin_3.requestFocus()
+                        includePinBinding.edtPin3.requestFocus()
                     } else if (numberTwo.isEmpty()) {
-                        edt_pin_1.requestFocus()
+                        includePinBinding.edtPin1.requestFocus()
                     }
                 }
                 R.id.edt_pin_3 -> {
                     if (numberThree.length == 1) {
-                        edt_pin_4.requestFocus()
+                        includePinBinding.edtPin4.requestFocus()
                     } else if (numberThree.isEmpty()) {
-                        edt_pin_2.requestFocus()
+                        includePinBinding.edtPin2.requestFocus()
                     }
                 }
                 R.id.edt_pin_4 -> {
                     if (numberFour.length == 1) {
-                        edt_pin_5.requestFocus()
+                        includePinBinding.edtPin5.requestFocus()
                     } else if (numberFour.isEmpty()) {
-                        edt_pin_3.requestFocus()
+                        includePinBinding.edtPin3.requestFocus()
                     }
                 }
                 R.id.edt_pin_5 -> {
                     if (numberFive.length == 1) {
-                        edt_pin_6.requestFocus()
+                        includePinBinding.edtPin6.requestFocus()
                     } else if (numberFive.isEmpty()) {
-                        edt_pin_4.requestFocus()
+                        includePinBinding.edtPin4.requestFocus()
                     }
                 }
                 R.id.edt_pin_6 -> {
@@ -82,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                         val number = numberOne + numberTwo + numberThree + numberFour + numberFive + numberSix
                         Toast.makeText(this@MainActivity, "Input : $number", Toast.LENGTH_LONG).show()
                     } else {
-                        edt_pin_5.requestFocus()
+                        includePinBinding.edtPin5.requestFocus()
                     }
                 }
             }
