@@ -16,4 +16,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/include_pin_entry"
+        app:layout_constraintStart_toStartOf="@+id/include_pin_entry"
+        app:layout_constraintTop_toBottomOf="@+id/include_pin_entry" />
+
+    <TextView
+        android:id="@+id/txt_pin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Input Pin is ..."
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/include_pin_entry"
+        app:layout_constraintStart_toStartOf="@+id/include_pin_entry"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ok" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
