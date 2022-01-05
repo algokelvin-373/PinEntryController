@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.algokelvin.pinentryedittext.databinding.ActivityMainBinding
@@ -11,20 +12,23 @@ import com.algokelvin.pinentryedittext.databinding.IncludePinBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var includePinBinding: IncludePinBinding
+    private lateinit var listEdtPin: Array<EditText>
+    private lateinit var pinEntry: PinEntry
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        includePinBinding = binding.includePinEntry
 
-        includePinBinding.edtPin1.transformationMethod = AsteriskPasswordTransformationMethod()
-        includePinBinding.edtPin2.transformationMethod = AsteriskPasswordTransformationMethod()
-        includePinBinding.edtPin3.transformationMethod = AsteriskPasswordTransformationMethod()
-        includePinBinding.edtPin4.transformationMethod = AsteriskPasswordTransformationMethod()
-        includePinBinding.edtPin5.transformationMethod = AsteriskPasswordTransformationMethod()
-        includePinBinding.edtPin6.transformationMethod = AsteriskPasswordTransformationMethod()
+        listEdtPin = arrayOf(
+            binding.includePinEntry.edtPin1,
+            binding.includePinEntry.edtPin2,
+            binding.includePinEntry.edtPin3,
+            binding.includePinEntry.edtPin4,
+            binding.includePinEntry.edtPin5,
+            binding.includePinEntry.edtPin6,
+        )
+        pinEntry = PinEntry(listEdtPin)
 
         includePinBinding.edtPin1.addTextChangedListener(inputPinController(includePinBinding.edtPin1))
         includePinBinding.edtPin2.addTextChangedListener(inputPinController(includePinBinding.edtPin2))
