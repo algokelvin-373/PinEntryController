@@ -1,5 +1,6 @@
 package com.algokelvin.pinentryedittext
 
+import algokelvin.app.pinentrycontroller.PinEntry
 import android.os.Bundle
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity

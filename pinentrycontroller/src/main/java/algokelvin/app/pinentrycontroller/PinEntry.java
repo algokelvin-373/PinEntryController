@@ -1,4 +1,4 @@
-package com.algokelvin.pinentryedittext;
+package algokelvin.app.pinentrycontroller;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -48,19 +48,19 @@ public class PinEntry {
                     digits[x] = edtTextPin[x].getText().toString().trim();
                 }
 
-                switch (editText.getId()) {
-                    case R.id.edt_pin_1 : setFirstDigit(digits[0], edtTextPin[1]);
-                        break;
-                    case R.id.edt_pin_2 : setDigit(digits[1], edtTextPin[2], edtTextPin[0]);
-                        break;
-                    case R.id.edt_pin_3 : setDigit(digits[2], edtTextPin[3], edtTextPin[1]);
-                        break;
-                    case R.id.edt_pin_4 : setDigit(digits[3], edtTextPin[4], edtTextPin[2]);
-                        break;
-                    case R.id.edt_pin_5 : setDigit(digits[4], edtTextPin[5], edtTextPin[3]);
-                        break;
-                    case R.id.edt_pin_6 : setLastDigit(digits[5], edtTextPin[4]);
-                        break;
+                int id = editText.getId();
+                if (id == R.id.edt_pin_1) {
+                    setFirstDigit(digits[0], edtTextPin[1]);
+                } else if (id == R.id.edt_pin_2) {
+                    setDigit(digits[1], edtTextPin[2], edtTextPin[0]);
+                } else if (id == R.id.edt_pin_3) {
+                    setDigit(digits[2], edtTextPin[3], edtTextPin[1]);
+                } else if (id == R.id.edt_pin_4) {
+                    setDigit(digits[3], edtTextPin[4], edtTextPin[2]);
+                } else if (id == R.id.edt_pin_5) {
+                    setDigit(digits[4], edtTextPin[5], edtTextPin[3]);
+                } else if (id == R.id.edt_pin_6) {
+                    setLastDigit(digits[5], edtTextPin[4]);
                 }
             }
 
