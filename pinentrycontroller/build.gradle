@@ -35,3 +35,16 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
 }
+
+task clearJar(type: Delete) {
+    delete 'release/algokelvin-pinentry-controller.jar'
+}
+
+task makeJar(type: Copy) {
+    from('build/intermediates/aar_main_jar/debug/')
+    into('release/')
+    include('classes.jar')
+    rename('classes.jar', 'algokelvin-pinentry-controller.jar')
+}
+
+makeJar.dependsOn(clearJar, build)
