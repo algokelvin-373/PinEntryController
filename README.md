@@ -16,7 +16,7 @@
     <th>Description</th>
   </tr>
   <tr>
-    <td><a href="https://jitpack.io/#algokelvin-373/PinEntryController">1.0.0-alpha</a></td>
+    <td><a href="https://github.com/algokelvin-373/PinEntryController/blob/master/pinentrycontroller/release/algokelvin-pinentry-controller.jar">1.0.0-alpha</a></td>
     <td>
       <b>Version 1.0.0-alpha</b><br>
       Description
