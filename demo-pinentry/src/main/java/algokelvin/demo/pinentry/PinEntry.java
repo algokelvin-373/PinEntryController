@@ -2,27 +2,27 @@ package algokelvin.demo.pinentry;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.widget.EditText;
+import android.widget.TextView;
 
 public class PinEntry {
-    private EditText[] edtTextPin;
+    private TextView[] edtTextPin;
     private String[] digits;
     private String number;
 
-    public PinEntry(EditText[] edtTextPin) {
+    public PinEntry(TextView[] edtTextPin) {
         number = "";
         setEdtTextPin(edtTextPin);
         setTransformationMethod();
         actionAddTextChangedListener();
     }
 
-    private void setEdtTextPin(EditText[] edtTextPin) {
+    private void setEdtTextPin(TextView[] edtTextPin) {
         this.edtTextPin = edtTextPin;
         this.digits = new String[edtTextPin.length];
     }
 
     private void setTransformationMethod() {
-        for (EditText edt: edtTextPin) {
+        for (TextView edt: edtTextPin) {
             edt.setTransformationMethod(new AsteriskPasswordTransformationMethod());
         }
     }
@@ -32,12 +32,12 @@ public class PinEntry {
     }
 
     private void actionAddTextChangedListener() {
-        for (EditText edt: edtTextPin) {
+        for (TextView edt: edtTextPin) {
             setAddTextChangedListener(edt);
         }
     }
 
-    private void setAddTextChangedListener(EditText editText) {
+    private void setAddTextChangedListener(TextView editText) {
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
@@ -50,7 +50,12 @@ public class PinEntry {
 
                 int id = editText.getId();
                 if (id == R.id.edt_pin_1) {
-                    setFirstDigit(digits[0], edtTextPin[1]);
+//                    setFirstDigit(digits[0], edtTextPin[1]);
+                    if (digits[0].length() == 1) {
+                        edtTextPin[0].setFocusable(false);
+                        edtTextPin[1].requestFocus();
+                        edtTextPin[1].setFocusable(true);
+                    }
                 } else if (id == R.id.edt_pin_2) {
                     setDigit(digits[1], edtTextPin[2], edtTextPin[0]);
                 } else if (id == R.id.edt_pin_3) {
@@ -70,13 +75,13 @@ public class PinEntry {
         });
     }
 
-    private void setFirstDigit(String digit, EditText editText) {
+    private void setFirstDigit(String digit, TextView editText) {
         if (digit.length() == 1) {
             editText.requestFocus();
         }
     }
 
-    private void setDigit(String digit, EditText edtNext, EditText edtBefore) {
+    private void setDigit(String digit, TextView edtNext, TextView edtBefore) {
         if (digit.length() == 1) {
             edtNext.requestFocus();
         } else if (digit.isEmpty()) {
@@ -84,7 +89,7 @@ public class PinEntry {
         }
     }
 
-    private void setLastDigit(String digit, EditText editText) {
+    private void setLastDigit(String digit, TextView editText) {
         if (!digit.isEmpty()) {
             for (String s : digits) number += s;
         } else {
