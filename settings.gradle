@@ -1,2 +1,3 @@
 rootProject.name = "PinEntryEditText"
 include ':pinentrycontroller'
+include ':demo-pinentry'
