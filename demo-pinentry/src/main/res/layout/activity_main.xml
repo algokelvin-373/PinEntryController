@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/layout_pin"
-        layout="@layout/include_pin2"
+        layout="@layout/include_pin3"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginStart="20dp"
@@ -28,7 +28,6 @@
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="14sp"
-        android:imeOptions="actionNext"
         app:drawableStartCompat="@drawable/selector_icon_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
