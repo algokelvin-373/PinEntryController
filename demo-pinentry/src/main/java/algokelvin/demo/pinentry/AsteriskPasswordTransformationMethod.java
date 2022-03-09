@@ -1,4 +1,4 @@
-package com.algokelvin.pinentryedittext;
+package algokelvin.demo.pinentry;
 
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
