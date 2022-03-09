@@ -8,6 +8,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import algokelvin.app.pinentry.PinEntry2;
+
 public class Main2Activity extends AppCompatActivity {
     private TextView btnBack, btnAction;
     private boolean enBack = false;

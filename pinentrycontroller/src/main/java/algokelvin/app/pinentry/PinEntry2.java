@@ -1,4 +1,4 @@
-package algokelvin.demo.pinentry;
+package algokelvin.app.pinentry;
 
 import android.widget.TextView;
 
