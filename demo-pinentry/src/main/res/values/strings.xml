@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">demo-pinentry</string>
+    <string name="label_back">Kembali</string>
+</resources>
